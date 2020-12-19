@@ -1,4 +1,17 @@
 <h1>Liste des events </h1>
-<ul>
-  <li *ngFor="let e of events" >{{e.title}}</li>
-</ul>
+
+<app-detail-event *ngIf="activeEventId" [eventId]="activeEventId"></app-detail-event>
+
+<div class="row">
+  <div *ngFor="let e of events" class="card col-3 m-2" style="width: 18rem;">
+    <img src="../../../assets/meeting.jpeg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{e.title}}</h5>
+      <p class="card-text">{{e.place}}</p>
+      <a (click)="showDetails(e.id)" class="btn btn-primary">Détails</a>
+      <a (click)="goToEdit(e.id)" class="btn btn-info">Editer</a>
+       <!-- routerLink="/events/edit/{{e.id}}" -->
+      <a (click)="deleteEvent(e.id)" class="btn btn-danger">Supprimer</a>
+    </div>
+  </div>
+</div>

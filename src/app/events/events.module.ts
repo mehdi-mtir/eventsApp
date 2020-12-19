@@ -6,6 +6,11 @@ import { EditEventComponent } from './edit-event/edit-event.component';
 import { DetailEventComponent } from './detail-event/detail-event.component';
 
 
+import { EventService } from './service/event.service';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+
+
 
 @NgModule({
   declarations: [
@@ -15,7 +20,10 @@ import { DetailEventComponent } from './detail-event/detail-event.component';
     DetailEventComponent
   ],
   imports: [
-    CommonModule
-  ]
+    CommonModule,
+    ReactiveFormsModule,
+    RouterModule
+  ],
+  providers : [EventService]
 })
 export class EventsModule { }

@@ -1,1 +1,24 @@
-<p>edit-event works!</p>
+<h1>Editer un event </h1>
+<form [formGroup]= "formEvents" (submit)="onSubmit()">
+  <div class="mb-3">
+    <label for="id" class="form-label">Id</label>
+    <input type="number" class="form-control" id="id" name="id" formControlName="id">
+  </div>
+  <div class="mb-3">
+    <label for="title" class="form-label">Title</label>
+    <input type="text" class="form-control" id="title" name="title" formControlName="title">
+  </div>
+  <div class="mb-3">
+    <label for="place" class="form-label">Lieu</label>
+    <input type="text" class="form-control" id="place" name="place" formControlName="place">
+  </div>
+  <div class="mb-3">
+    <label for="start" class="form-label">Date début</label>
+    <input type="date" class="form-control" id="start" name="start" formControlName="start">
+  </div>
+  <div class="mb-3">
+    <label for="end" class="form-label">Date fin</label>
+    <input type="date" class="form-control" id="end" name="end" formControlName="end">
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="formEvents.invalid">Editer</button>
+</form>

@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Events } from '../model/event';
+import { EventService } from '../service/event.service';
 
 @Component({
   selector: 'app-detail-event',
   templateUrl: './detail-event.component.html',
   styleUrls: ['./detail-event.component.css']
 })
-export class DetailEventComponent implements OnInit {
+export class DetailEventComponent implements OnChanges {
+  @Input() eventId;
+  activeEvent : Events;
 
-  constructor() { }
+  constructor(private service : EventService) { }
 
-  ngOnInit(): void {
+  ngOnChanges(changes: SimpleChanges): void {
+    this.activeEvent = this.service.getEventById(this.eventId);
   }
 
 }
